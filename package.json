@@ -1,14 +1,26 @@
 {
-  "name": "express0",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+   "name": "express0",
+   "version": "1.0.0",
+   "description": "",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "ts-node app.ts"
+   },
+   "author": "",
+   "license": "ISC",
+   "dependencies": {
+      "express": "^4.17.1",
+      "mysql2": "^2.3.0",
+      "passport-local": "^1.0.0",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.36",
+      "mysql": "^2.14.1"
+   },
+   "devDependencies": {
+      "@types/node": "^8.0.29",
+      "ts-node": "3.3.0",
+      "ts-node-dev": "^1.1.8",
+      "typescript": "3.3.3333"
+   }
 }
