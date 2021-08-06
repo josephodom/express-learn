@@ -4,6 +4,7 @@ import "reflect-metadata";
 import { createConnection, getConnection } from "typeorm";
 import { User } from "./src/entity/User";
 import { StatusCodes } from 'http-status-codes';
+import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 createConnection();
@@ -31,17 +32,15 @@ apiv1UserRouter.get('/read', async (req, res) => {
 });
 apiv1UserRouter.post('/login', async (req, res) => {
     const response = {
-        success: false,
-        data: {
-            message: '',
-        },
+        error: null,
+        token: '',
     };
     
     const { username, password } = req.body;
     
     if(!username || !password)
     {
-        response.data.message = 'Invalid username or password';
+        response.error = 'Invalid username or password';
         
         res
             .status(StatusCodes.BAD_REQUEST)
@@ -57,7 +56,7 @@ apiv1UserRouter.post('/login', async (req, res) => {
     
     if(!user)
     {
-        response.data.message = `User ${username} does not exist`;
+        response.error = `User ${username} does not exist`;
         
         // FIXME: Security hole
         res
@@ -70,7 +69,7 @@ apiv1UserRouter.post('/login', async (req, res) => {
     
     if(!bcrypt.compareSync(password, user.password))
     {
-        response.data.message = `Password for user ${username} incorrect`;
+        response.error = `Password for user ${username} incorrect`;
         
         res
             .status(StatusCodes.UNAUTHORIZED)
@@ -80,7 +79,7 @@ apiv1UserRouter.post('/login', async (req, res) => {
         return;
     }
     
-    response.success = true;
+    response.token = uuidv4();
     
     res
         .status(StatusCodes.OK)
