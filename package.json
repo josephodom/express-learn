@@ -5,17 +5,19 @@
    "main": "index.js",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "ts-node app.ts"
+      "start": "ts-node app.ts",
+      "debug": "ts-node-dev --inspect --trace-warnings -- app.ts"
    },
    "author": "",
    "license": "ISC",
    "dependencies": {
+      "bcrypt": "^5.0.1",
       "express": "^4.17.1",
+      "mysql": "^2.14.1",
       "mysql2": "^2.3.0",
       "passport-local": "^1.0.0",
       "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.36",
-      "mysql": "^2.14.1"
+      "typeorm": "0.2.36"
    },
    "devDependencies": {
       "@types/node": "^8.0.29",
