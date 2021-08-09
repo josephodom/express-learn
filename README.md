@@ -2,9 +2,9 @@
 
 This project was created for the purpose of learning how to develop REST APIs in `Express.js`.
 
-## What does it do?
+## What will it do?
 
-In short, there are user accounts & their are dictionary words. Words over a certain length may only be accessed by users. Some words are so long that they may only be accessed by privileged users.
+In short, there are user accounts & there are dictionary words. Words over a certain length may only be accessed by users. Some words are so long that they may only be accessed by privileged users.
 
 ## What words does it have?
 
